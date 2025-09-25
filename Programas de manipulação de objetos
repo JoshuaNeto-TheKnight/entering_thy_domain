@@ -1,0 +1,220 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "history_visible": true,
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/JoshuaNeto-TheKnight/entering_thy_domain/blob/main/Programas%20de%20manipula%C3%A7%C3%A3o%20de%20objetos\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "Op56NKdSpw-0"
+      },
+      "outputs": [],
+      "source": [
+        "class Ponto:\n",
+        "  def __init__(self, x, y):\n",
+        "    self.x = x\n",
+        "    self.y = y\n",
+        "\n",
+        "\n",
+        "# Programa principal\n",
+        "if __name__ == '__main__':\n",
+        "   ponto1 = Ponto(3,4)\n",
+        "   ponto2 = Ponto(-1,3)\n",
+        "\n",
+        "   print(f\"As coordenadas do Ponto 1 são: {ponto1.x, ponto1.y}\")\n",
+        "   print(f\"As coordenadas do Ponto 1 são: {ponto2.x, ponto2.y}\")"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Casa:\n",
+        "  def __init__(self, n, e, c):\n",
+        "    self.numero = n\n",
+        "    self.endereco = e\n",
+        "    self.cor = c\n",
+        "\n",
+        "# Programa principal\n",
+        "if __name__ == '__main__':\n",
+        "   minha_casa = Casa(209,\"Rua 5 de Maio\",\"Verde\")\n",
+        "\n",
+        "   print(f\"Minha casa tem as seguintes características: Fica na rua {minha_casa.endereco}, Número {minha_casa.numero} e é da cor {minha_casa.cor}\")"
+      ],
+      "metadata": {
+        "id": "3OeJ2fUZqiCy"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Ponto:\n",
+        "  def __init__(self, x, y):\n",
+        "    self.x = x\n",
+        "    self.y = y\n",
+        "\n",
+        "  def quadrante(self):\n",
+        "    if (self.x > 0 and self.y > 0):\n",
+        "      return \"1 quadrante\"\n",
+        "    elif (self.x < 0 and self.y > 0):\n",
+        "      return \"2 quadrante\"\n",
+        "    elif (self.x < 0 and self.y < 0):\n",
+        "      return \"3 quadrante\"\n",
+        "    elif (self.x > 0 and self.y < 0):\n",
+        "      return \"4 quadrante\"\n",
+        "    else:\n",
+        "      return \"Nenhum dos quadrantes\"\n",
+        "\n",
+        "# Programa principal\n",
+        "if __name__ == '__main__':\n",
+        "   ponto1 = Ponto(3,-4)\n",
+        "   ponto2 = Ponto(-1,-3)\n",
+        "\n",
+        "   print(f\"As coordenadas do Ponto 1 são: {ponto1.x, ponto1.y}, pertence ao {ponto1.quadrante()}\")\n",
+        "   print(f\"As coordenadas do Ponto 1 são: {ponto2.x, ponto2.y}, pertence ao {ponto2.quadrante()}\")"
+      ],
+      "metadata": {
+        "id": "WmCtg7hRr8El"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Retangulo:\n",
+        "  def __init__(self, b, a):\n",
+        "    self.base = b\n",
+        "    self.altura = a\n",
+        "\n",
+        "  def calcula_area(self):\n",
+        "    return self.base * self.altura\n",
+        "\n",
+        "  def eh_quadrado(self):\n",
+        "    if self.base == self.altura:\n",
+        "      return True\n",
+        "    else:\n",
+        "      return False\n",
+        "\n",
+        "# Programa principal\n",
+        "if __name__ == '__main__':\n",
+        "   rect = Retangulo(4,5)\n",
+        "\n",
+        "   print(f\"A area do Retangulo é: {rect.calcula_area()}\")\n",
+        "\n",
+        "   if rect.eh_quadrado():\n",
+        "    print(f\"O retangulo é quadrado\")\n",
+        "   else:\n",
+        "    print(f\"O retangulo não é quadrado\")"
+      ],
+      "metadata": {
+        "id": "BxEs_0ew3Lmb"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "class Conta_Corrente:\n",
+        "  def __init__(self, cpf, saldo):\n",
+        "    self.__cpf = cpf\n",
+        "    self.__saldo = saldo\n",
+        "  @property\n",
+        "  def saldo(self):\n",
+        "    return self.__saldo\n",
+        "  @saldo.setter\n",
+        "  def saldo(self, valor):\n",
+        "    self.__saldo = valor\n",
+        "  @property\n",
+        "  def cpf(self):\n",
+        "    return self.__cpf\n",
+        "  @cpf.setter\n",
+        "  def cpf(self, valor):\n",
+        "    self.__cpf = valor\n",
+        "  def transferir(self, valor, destino):\n",
+        "    self.__saldo -= valor\n",
+        "    destino.saldo += valor\n",
+        "  def limitecpf(self):\n",
+        "    if len(self.__cpf) != 11:\n",
+        "      return False\n",
+        "    return True\n",
+        "\n",
+        "class Cliente:\n",
+        "  def __init__(self, nome, cpf):\n",
+        "    self.__nome = nome\n",
+        "    self.__cpf = cpf\n",
+        "  def get_nome(self):\n",
+        "    return self.__nome\n",
+        "  def set_nome(self, nome):\n",
+        "    self.__nome = nome\n",
+        "  def get_cpf(self):\n",
+        "    return self.__cpf\n",
+        "  def set_cpf(self, cpf):\n",
+        "    self.__cpf = cpf\n",
+        "class Banco:\n",
+        "  def __init__(self):\n",
+        "    self.__banco = []\n",
+        "  def listar_contas(self, conta):\n",
+        "    self.__banco.append(conta)\n",
+        "  def soma_de_saldos(self):\n",
+        "    soma = 0\n",
+        "    print(len(self.__banco))\n",
+        "    for i in range(len(self.__banco)):\n",
+        "      soma += self.__banco[i].saldo\n",
+        "    return print(soma)\n",
+        "  def remover_conta(self, conta):\n",
+        "    for i in range(len(self.__banco)):\n",
+        "      if self.__banco[i] == conta:\n",
+        "        self.__banco[i]\n",
+        "        return print('Conta removida com sucesso')\n",
+        "\n",
+        "if __name__ == '__main__':\n",
+        "  conta_Josue = Conta_Corrente('77733399900', 400)\n",
+        "  conta_Davi = Conta_Corrente('11177799900', 100)\n",
+        "  teste = conta_Josue.limitecpf()\n",
+        "  if teste == True:\n",
+        "    print('CPF válido')\n",
+        "  else:\n",
+        "    print('CPF inválido')\n",
+        "  conta_Josue.transferir(100, conta_Davi)\n",
+        "  print(conta_Josue.saldo)\n",
+        "  lista_banco = Banco()\n",
+        "  lista_banco.listar_contas(conta_Josue)\n",
+        "  lista_banco.listar_contas(conta_Davi)\n",
+        "  lista_banco.soma_de_saldos()\n",
+        "  lista_banco.remover_conta('77733399900')"
+      ],
+      "metadata": {
+        "id": "awNHpjHZ6Gd_"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
